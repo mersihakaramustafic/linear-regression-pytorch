@@ -42,7 +42,7 @@ model = LinearRegressionModel(in_features, out_features)
 criterion = nn.MSELoss()
 optimizer = optim.SGD(model.parameters(), lr=0.1)
 
-num_epochs = 10
+num_epochs = 33
 
 for epoch in range(num_epochs):
     # forward pass
@@ -67,3 +67,16 @@ model.eval()
 with torch.no_grad():
     prediction_normalized = model(new_x_tensor)
 
+prediction_denormalized = prediction_normalized.item() * y_std + y_mean
+print(f"Predizted Value for X = {new_x}: {prediction_denormalized}")
+
+fit_line = model(X_tensor).detach().numpy() * y_std + y_mean
+
+# Plotting predicted values
+plt.scatter(X, y, label='Initial Data')
+plt.plot(X, fit_line, 'r', label = 'PyTorch Line')
+plt.title('PyTorch with Predictions')
+plt.xlabel('X')
+plt.ylabel('y')
+plt.legend()
+plt.show()
