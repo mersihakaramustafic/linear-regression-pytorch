@@ -23,15 +23,9 @@ nn.Linear(in_features=1, out_features=1)
 
 ## How to Run
 
-1. Clone the repository:
-
+```
 git clone https://github.com/your-username/linear-regression-pytorch.git
 cd linear-regression-pytorch
-
-2. Install dependencies:
-
 pip install torch matplotlib numpy
-
-3. Run the script:
-
 python linear_regression.py
+```
