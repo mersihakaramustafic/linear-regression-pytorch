@@ -19,7 +19,7 @@ A single-layer linear regression model: `y = wx + b`
 Implemented using:
 ```python
 nn.Linear(in_features=1, out_features=1)
-```python
+```
 
 ## How to Run
 
